@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!--<ion-buttons slot="start">-->
+      <!--<ion-back-button></ion-back-button>-->
+    <!--</ion-buttons>-->
+    <ion-title> <h5> AULE </h5> </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="showAuleMapp()">
+        <ion-icon name="map" ></ion-icon> Mappa Aule
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <!--{{diagnostic}}-->
+    <!--<br>-->
+    <!--<br>-->
+    <ion-item>
+      <ion-label position="floating">Cerca aula</ion-label>
+      <ion-input type="text" placeholder="Cerca Aula..." (input)="searchMaps($event)"></ion-input>
+    </ion-item>
+
+    <ion-list *ngIf="!isfiltered">
+      <ion-item *ngFor="let aula of aula" (click)="getAulaDettagli(aula)">
+        <ion-icon name="pin"></ion-icon> Aula: {{ aula.nome }}
+        <ion-card-content>
+          Edificio: {{aula.edificio}}
+          <br>
+          {{aula.piano}}
+        </ion-card-content>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="isfiltered">
+      <ion-item *ngFor="let aula of filteredAula" (click)="getAulaDettagli(aula)">
+        <ion-icon name="pin"></ion-icon> Aula: {{ aula.nome }}
+        <ion-card-content>
+          Edificio: {{aula.edificio}}
+          <br>
+          {{aula.piano}}
+        </ion-card-content>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+

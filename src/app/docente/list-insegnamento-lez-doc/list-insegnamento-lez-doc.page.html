@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title >
+      <h5> Recensione Lezione
+        <br>
+        Insegnamenti: </h5>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="ion-padding">
+    <!--{{diagnostic}}-->
+    <!--<br>-->
+    <!--<br>-->
+    <ion-item>
+      <ion-label position="floating">Cerca insegnamento</ion-label>
+      <ion-input type="text" placeholder="Cerca Insegnamento..." (input)="searchIns($event)"></ion-input>
+    </ion-item>
+
+    <ion-list *ngIf="!isfiltered">
+      <ion-item *ngFor="let insegn of insegnamento" (click)="btnListLez(insegn)">
+        <ion-icon name="bookmark"></ion-icon>
+        <ion-card-content>
+          <h2>{{insegn.nome}}</h2>
+          <br>
+          <h6> Laurea: {{insegn.tipo}}</h6>
+          <h6> Cds:  {{insegn.nomeCorsoDiStudio}} </h6>
+          <h6>Anno: {{insegn.annoCorso}}</h6>
+          <h6>{{insegn.crediti}} CFU</h6>
+        </ion-card-content>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="isfiltered">
+      <ion-item *ngFor="let insegn of filteredInsegn" (click)="btnListMateriale(insegn)">
+        <ion-icon name="bookmark"></ion-icon>
+        <ion-card-content>
+          <h2>{{insegn.nome}}</h2>
+          <br>
+          <h6> Laurea: {{insegn.tipo}}</h6>
+          <h6> CDS:  {{insegn.nomeCorsoDiStudio}} </h6>
+          <h6>Anno: {{insegn.annoCorso}}</h6>
+          <h6>{{insegn.crediti}} CFU</h6>
+        </ion-card-content>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+

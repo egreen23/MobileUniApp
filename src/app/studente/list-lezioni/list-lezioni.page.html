@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <!--<ion-title text-wrap>-->
+    <h6 text-wrap>
+      {{insegnamento.nome}}
+      <br>
+      Lezioni:</h6>
+    <!--</ion-title>-->
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <!--{{diagnostic}}-->
+  <!--<br>-->
+  <!--<br>-->
+
+  <ion-item *ngFor="let lez of l" (click)="btnLezione(lez)">
+    <ion-icon style="font-size: 40px;" name="time" ></ion-icon>
+    <ion-card-content>
+      Lez. svolta in data: <h2>{{lez.data}}</h2>
+    </ion-card-content>
+  </ion-item>
+
+</ion-content>

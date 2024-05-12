@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <!--<ion-title>-->
+        <h6 text-wrap>{{insegnamento.nome}}
+            <br>
+            Materiale Didattico:
+        </h6>
+        <!--</ion-title>-->
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <!--{{diagnostic}}-->
+    <!--<br>-->
+    <!--<br>-->
+    <ion-list>
+        <ion-item *ngFor="let mat of materiale" (click)="btnMateriale(mat)">
+            <ion-icon name="attach"></ion-icon>
+            <ion-card-content >
+                <h2>Titolo: {{mat.nome}}
+                    <br>
+                    Data di creazione: {{mat.data}}
+                </h2>
+            </ion-card-content>
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+

@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>
+            <h4>
+                <ion-icon name="school"></ion-icon>
+                Università del Salento
+            </h4>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    {{diagnostic}}
+
+    <!//SERVE PER CENTRARE LE COSE-->
+
+    <!--<div class="ion-text-center">-->
+    <!--<ion-icon style="font-size: 200px;" name="school" ></ion-icon>-->
+    <!--</div>-->
+
+    <!--<ion-card>-->
+    <div class="ion-text-center">
+        <img class="ion-text-center" src="assets/imgs/logo.jpg" style="font-size: 100px;">
+    </div>
+    <!--</ion-card>-->
+
+    <ion-item>
+        <ion-input type="text" placeholder="Matricola" [(ngModel)]="matricola" ></ion-input>
+    </ion-item>
+    <!--<ion-item>-->
+    <!--<ion-input type="password" placeholder="Password" [(ngModel)]="psw" ></ion-input>-->
+    <!--</ion-item>-->
+    <ion-item>
+        <ion-input type={{type}} placeholder="Password" [(ngModel)]="psw" ></ion-input>
+
+        <ion-button size="small" color="dark" slot="end" *ngIf="showPass" class="pass-button"
+                    style="background-color: transparent; margin: 0; padding: 0;  " fill="clear"
+                    (click)="showPassword()">
+            <ion-icon slot="icon-only" name="eye" size="small"></ion-icon>
+        </ion-button>
+        <ion-button size="small" color="dark" slot="end" *ngIf="!showPass" class="pass-button"
+                    style="background-color: transparent; margin: 0; padding: 0;" fill="clear"
+                    (click)="showPassword()">
+            <ion-icon slot="icon-only" name="eye-off" size="small"></ion-icon>
+        </ion-button>
+
+    </ion-item>
+    <br>
+    <br>
+    <ion-button expand="block" (click)="doLogin()" >LOGIN</ion-button>
+
+    <!--<ion-button expand="block" routerLink="/menu/aule">Login2</ion-button>-->
+
+
+</ion-content>
+

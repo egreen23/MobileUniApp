@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> <h5>Nuova Chat...</h5> </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let p of people" (click)="openChat(p)">
+      <ion-icon name="person"></ion-icon>
+      <!--<ion-card-content>-->
+      <!--{{p.nome}}  {{p.cognome}} - ({{ p.tipo}})-->
+      <!--</ion-card-content>-->
+      <ion-card-content *ngIf="(p.tipo == 'docente')">
+        Prof. {{p.nome}}  {{p.cognome}}
+      </ion-card-content>
+      <ion-card-content *ngIf="(p.tipo == 'studente')">
+        {{p.nome}}  {{p.cognome}}
+      </ion-card-content>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

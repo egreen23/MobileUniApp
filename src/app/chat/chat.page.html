@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title *ngIf="chatId == '0'">{{chatData.chatName}}</ion-title>
+    <ion-title *ngIf="chatId != '0'">{{chatPublicData.chatName}}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding [scrollEvents]="true">
+
+  {{diagnostic}}
+
+  <div id="chatMessages">
+
+    <!-- Displayed in case of chat selected -->
+    <div *ngIf="idChat == '0'">
+      <div *ngIf="messages != null">
+        <div>
+          <ion-infinite-scroll position="top" style="width: 100%" >
+            <ion-item *ngFor="let message of messages" lines="none" style="margin: 2px auto 2px auto;" >
+              <ion-card slot="end" *ngIf="((message.sendId == idSender) || (message.sendId == idSender))" class="right-card">
+                <ion-card-content [style.font-size]="'16px'" [style.text-alignment]="'center'">
+                  {{ message.text }}
+                </ion-card-content>
+                <ion-row>
+                  <ion-col class="sending-hour">
+                    {{ message.date }}
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+              <ion-card slot="start" *ngIf="((message.sendId == idReceiver  ) || (message.sendId == idReceiver))" class="left-card" >
+                <ion-card-content [style.font-size]="'16px'">
+                  {{ message.text }}
+                </ion-card-content>
+                <ion-row class="sending-hour">
+                  <ion-col >
+                    {{ message.date }}
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+            </ion-item>
+          </ion-infinite-scroll>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="idChat != '0'">
+      <div *ngIf="messages != null">
+        <div>
+          <ion-infinite-scroll position="top" style="width: 100%" >
+            <ion-item *ngFor="let message of messages" lines="none" style="margin: 2px auto 2px auto;" >
+              <ion-card slot="end" *ngIf="((message.sendId == idSender) || (message.sendId == idSender))" class="right-card">
+                <ion-card-content [style.font-size]="'16px'" [style.text-alignment]="'center'">
+                  {{ message.text }}
+                </ion-card-content>
+                <ion-row>
+                  <ion-col class="sending-hour">
+                    {{ message.date }}
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+              <ion-card slot="start" *ngIf="((message.sendId != idSender  ) || (message.sendId != idSender))" class="left-card" >
+                <ion-card-content [style.font-size]="'16px'">
+                  {{message.sendName}} : {{ message.text }}
+                </ion-card-content>
+                <ion-row class="sending-hour">
+                  <ion-col >
+                    {{ message.date }}
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+            </ion-item>
+          </ion-infinite-scroll>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <ion-item lines="none">
+    <ion-textarea rows="1" cols="20" type="text" placeholder="Scrivi un messaggio..." [(ngModel)]="messaggio"></ion-textarea>
+
+    <!--suppress HtmlUnknownAttribute -->
+    <ion-button shape="round" expand="full" size="medium" clear color="primary" type="button" item-right (click)="sendMessage()">
+      <ion-icon slot="icon-only" name="send"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-footer>

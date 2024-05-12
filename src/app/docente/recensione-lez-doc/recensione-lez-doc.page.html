@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <h6 text-wrap> Recensioni Lezione:<br>
+      {{lezione.nomeInsegnamento}} </h6>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <!--{{diagnostic}}-->
+  <!--<br>-->
+  <!--<br>-->
+
+  <ion-item lines="none">
+    <ion-label>
+      <h1>Gradimento Studenti: </h1>
+    </ion-label>
+  </ion-item>
+
+  <div *ngFor="let rec of recensione">
+    <!--<div>-->
+    <ion-card>
+      <ion-item>
+        <ion-card-subtitle color="dark"><h2> Recensione Voto: {{rec.voto}}  </h2></ion-card-subtitle>
+      </ion-item>
+      <!--<ion-item lines="none">-->
+      <!--<ion-label color="dark">Voto: {{recensione.voto}}  </ion-label>-->
+      <!--</ion-item>-->
+      <ion-item lines="none">
+        Nota:
+        {{rec.testo}}
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-text-right">
+          <p>
+            Data: {{rec.data}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </div>
+
+</ion-content>

@@ -1,0 +1,94 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            <h4><ion-icon name="school"></ion-icon>
+                Università del Salento (D)</h4>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<!--<ion-content>-->
+<!--&lt;!&ndash;<div class="ion-padding">&ndash;&gt;-->
+
+<!--{{diagnostic}}-->
+
+<!--<br>-->
+
+<ion-content>
+    <section text-center margin-bottom>
+        <br>
+        <ion-icon style="font-size: 35px;" name="person" ></ion-icon>
+        <h4> Benvento, <br>
+            Prof. {{docente.nome}} {{docente.cognome}}
+        </h4>
+        Email: {{docente.email}} <br>
+        Code doc: {{docente.idMatricola}}
+    </section>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-6>
+                <ion-card text-center padding>
+                    <ion-button (click)="btnAule()" expand="block" fill="clear" size="large" class="sqare_button" color="dark">
+                        <div class="vertical">
+                            <ion-icon style="font-size: 65px;" slot="icon-only" name="map"></ion-icon>
+                            <span class="">
+                                 <h6>Aule</h6>
+                            </span>
+                        </div>
+                    </ion-button>
+                </ion-card>
+            </ion-col>
+            <ion-col col-6>
+                <ion-card text-center padding>
+                    <ion-button (click)="btnLezioni()" expand="block" fill="clear" size="large" class="sqare_button" color="dark">
+                        <div class="vertical">
+                            <ion-icon style="font-size: 65px;" slot="icon-only" name="calendar"></ion-icon>
+                            <span class="">
+                                <h6>Lezioni</h6>
+                            </span>
+                        </div>
+                    </ion-button>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6>
+                <ion-card text-center padding>
+                    <ion-button (click)="btnLogOut()" expand="block" fill="clear" size="large" class="sqare_button" color="dark">
+                        <div class="vertical">
+                            <ion-icon style="font-size: 65px;" slot="icon-only" name="log-out"></ion-icon>
+                            <span class="">
+                                <h6>LogOut</h6>
+                            </span>
+                        </div>
+                    </ion-button>
+                </ion-card>
+            </ion-col>
+            <ion-col col-6>
+                <ion-card text-center padding>
+                    <ion-button (click)="btnChat()" expand="block" fill="clear" size="large" class="sqare_button" color="dark">
+                        <div class="vertical">
+                            <ion-icon style="font-size: 65px;" slot="icon-only" name="chatboxes"></ion-icon>
+                            <span class="">
+                                <h6>Chat</h6>
+                            </span>
+                        </div>
+                    </ion-button>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!--<br>-->
+    <!--<ion-button expand="block" (click)="btnLezioni()" > CALENDARIO LEZIONI</ion-button>-->
+    <!--<br>-->
+    <!--<ion-button expand="block" >CHAT</ion-button>-->
+    <!--<br>-->
+    <!--<ion-button expand="block" (click)="btnAule()">AULE</ion-button>-->
+    <!--<br>-->
+
+
+</ion-content>

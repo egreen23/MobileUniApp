@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> <h5>MAPPA AULA: {{aula.nome}}</h5> </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card padding>
+    <!--{{diagnostic}}-->
+    <h3> <b><ion-icon name="pin"></ion-icon> Aula: {{ aula.nome }}</b></h3>
+
+    <ion-item lines="none">
+      <ion-icon style="font-size: 40px;" name="business" ></ion-icon>
+      <ion-card-content>
+        Edificio: {{aula.edificio}}
+        <br>
+        {{aula.piano}}
+      </ion-card-content>
+      <ion-button expand="block" (click)="navigateLocation()" slot="end">
+        GO
+        <ion-icon slot="end" name="navigate"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-card>
+  <br>
+  <div #mapElement class="map"></div>
+</ion-content>

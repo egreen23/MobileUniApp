@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>Lezione</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <!--{{diagnostic}}-->
+    <!--{{diagnostic1}}-->
+    <!--<br>-->
+    <!--<br>-->
+    <ion-item>
+        <ion-label>
+
+            <h1 text-wrap>{{lezione.nomeInsegnamento}}</h1>
+            <ion-item>
+                <ion-icon style="font-size: 40px;" name="school" ></ion-icon>
+                <ion-card-content text-wrap>
+                    Corso: {{lezione.nomeCorso}}
+                    <br>
+                    Tipo:  {{lezione.tipoCorso}}
+                </ion-card-content>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon style="font-size: 40px;" name="clock" ></ion-icon>
+                <ion-card-content>
+                    Ora Inizio: {{lezione.orarioInizio}}
+                    <br>
+                    Ora Fine: {{lezione.orarioFine}}
+                </ion-card-content>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon style="font-size: 40px;" name="business" ></ion-icon>
+                <ion-card-content>
+                    Aula: {{lezione.nomeAula}}
+                    <br>
+                    Edificio: {{aula.edificio}}
+                    <br>
+                    {{aula.piano}}
+                </ion-card-content>
+                <ion-button expand="block" (click)="navigateLocation()" slot="end">
+                    GO
+                    <ion-icon slot="end" name="navigate"></ion-icon>
+                </ion-button>
+            </ion-item>
+        </ion-label>
+        <br>
+    </ion-item>
+    <div #mapElement class="map"></div>
+</ion-content>
